@@ -1,0 +1,13 @@
+FROM debian:stable-20250721-slim
+
+# install build tools
+RUN apt-get update && apt-get install -y \
+  clang cmake
+
+COPY . /app
+
+WORKDIR /app/build
+
+RUN cmake .. && cmake --build .
+
+ENTRYPOINT [ "./cpuRayTracer" ]
