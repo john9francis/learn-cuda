@@ -8,6 +8,8 @@ COPY . /app
 
 WORKDIR /app/build
 
-RUN cmake -DCMAKE_BUILD_TYPE=Debug .. && cmake --build .
+ARG BUILD_TYPE=Release
+
+RUN cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} .. && cmake --build .
 
 ENTRYPOINT [ "./cpuRayTracer" ]

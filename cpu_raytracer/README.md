@@ -21,3 +21,8 @@ To do it all at once:
 ```sh
 docker run --rm $(docker build -q .) > image.ppm
 ```
+
+To build debug:
+```sh
+docker run --rm $(docker build --build-arg BUILD_TYPE=Debug -q .) > image.ppm
+```
