@@ -26,3 +26,7 @@ To build debug:
 ```sh
 docker run --rm $(docker build --build-arg BUILD_TYPE=Debug -q .) > image.ppm
 ```
+
+
+# Progress:
+- 8/8 made it to section 4.2 [here.](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
