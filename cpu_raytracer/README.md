@@ -16,3 +16,8 @@ To save output to an image:
 ```sh
 docker run --rm cpu_ray_tracer > image.ppm
 ```
+
+To do it all at once:
+```sh
+docker run --rm $(docker build -q .) > image.ppm
+```

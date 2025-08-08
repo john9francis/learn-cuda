@@ -1,25 +1,12 @@
-
+#include "hello.hh"
+#include "vec3.hh"
 #include <iostream>
 
 int main(){
-  int img_height = 256;
-  int img_width = 256;
+  // hello();
 
-  //render
+  vec3 vec(1,2,3);
 
-  std::cout << "P3\n" << img_width << " " << img_width << "\n255\n";
-
-  for (int j=0; j<img_height; j++) {
-    for (int i=0; i<img_width; i++) {
-      auto r = double(i) / (img_width - 1);
-      auto g = double(j) / (img_height - 1);
-      auto b = 0.0;
-
-      int ir = int(255.999 * r);
-      int ig = int(255.999 * g);
-      int ib = int(255.999 * b);
-
-      std::cout << ir << " " << ig << " " << ib << "\n";
-    }
-  }
+  std::cout << "vec[0]: " << vec[0] << "\n";
+  std::cout << "vec[3]: " << vec[3] << "\n";
 }
