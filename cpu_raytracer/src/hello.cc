@@ -1,29 +1,29 @@
 #include "hello.hh"
 #include <iostream>
 
+#include "color.hh"
+
 void hello() {
-  int img_height = 256;
-  int img_width = 256;
+  int imgHeight   = 256;
+  int imgWidth = 256;
 
   //render
 
-  std::cout << "P3\n" << img_width << " " << img_width << "\n255\n";
+  std::cout << "P3\n" << imgWidth << " " << imgWidth << "\n255\n";
 
-  for (int j=0; j<img_height; j++) {
+  for (int j=0; j<imgHeight  ; j++) {
 
     // progress bar
-    std::clog << "\rScanlines remaining: " << (img_height - j) << " " << std::flush;
+    std::clog << "\rScanlines remaining: " << (imgHeight   - j) << " " << std::flush;
 
-    for (int i=0; i<img_width; i++) {
-      auto r = double(i) / (img_width - 1);
-      auto g = double(j) / (img_height - 1);
-      auto b = 0.0;
+    for (int i=0; i<imgWidth; i++) {
+      color pixelColor = color(
+        double(i)/(imgWidth-1),
+        double(j)/(imgHeight  -1),
+        0.0
+      );
 
-      int ir = int(255.999 * r);
-      int ig = int(255.999 * g);
-      int ib = int(255.999 * b);
-
-      std::cout << ir << " " << ig << " " << ib << "\n";
+      write_color(std::cout, pixelColor);
     }
   }
 
