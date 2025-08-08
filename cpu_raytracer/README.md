@@ -11,3 +11,8 @@ I will be following [this tutorial](https://raytracing.github.io/books/RayTracin
 docker build -t cpu_ray_tracer .
 docker run --rm cpu_ray_tracer
 ```
+
+To save output to an image:
+```sh
+docker run --rm cpu_ray_tracer > image.ppm
+```
