@@ -2,7 +2,9 @@
 
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
+#ifdef DEBUG
+  #include <stdexcept>
+#endif
 
 class vec3 {
 public:
@@ -18,17 +20,21 @@ public:
   // operator overloading
   vec3 operator-() const { return vec3(-e[0], -e[1], -e[2]); };
   
-  // note: these are now memory safe
+  // note: these are now memory safe in DEBUG mode
   double operator[](int i) const {
-    if (i > 2 || i < 0) {
-      throw std::out_of_range("Tried to access vector index above 2 or below 0");
-    }
+    #ifdef DEBUG
+      if (i < 0 || i > 2) {
+        throw std::out_of_range("Vec3 index out of bounds");
+      }
+    #endif
     return e[i]; 
   };
   double& operator[](int i) { 
-    if (i > 2 || i < 0) {
-      throw std::out_of_range("Tried to access vector index above 2 or below 0");
-    }
+    #ifdef DEBUG
+      if (i < 0 || i > 2) {
+        throw std::out_of_range("Vec3 index out of bounds");
+      }
+    #endif
     return e[i]; 
   };
 
