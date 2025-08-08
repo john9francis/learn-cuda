@@ -27,6 +27,13 @@ To build debug:
 docker run --rm $(docker build --build-arg BUILD_TYPE=Debug -q .) > image.ppm
 ```
 
+For better debugging, run in interactive mode
+```sh
+docker run --rm -v ./:/app -w /app -it debian:stable-slim 
+```
+
 
 # Progress:
 - 8/8 made it to section 4.2 [here.](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+
+Note: I think I need ray marching not ray tracing but it's fine
