@@ -34,6 +34,4 @@ docker run --rm -v ./:/app -w /app -it debian:stable-slim
 
 
 # Progress:
-- 8/8 made it to section 4.2 [here.](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
-
-Note: I think I need ray marching not ray tracing but it's fine
+- 8/8 made it to section 6.1 [here.](https://raytracing.github.io/books/RayTracingInOneWeekend.html)

@@ -5,7 +5,25 @@
 #include "color.hh"
 
 // tmp function
+// note: this could potentially be sped up?
+bool hit_sphere(const point3& center, double radius, const ray& ray) {
+  vec3 oc = center - ray.origin();
+  double a = dot(ray.direction(), ray.direction());
+  double b = -2.0 * dot(ray.direction(), oc);
+  double c = dot(oc, oc) - radius * radius;
+
+  // do the quadratic formula
+  double discriminant = b*b - 4*a*c;
+  return (discriminant >= 0);
+}
+
+// tmp function
 color GetRayColor(const ray& r) {
+
+  // put a temporary sphere at 0,0,-1
+  if (hit_sphere(point3(0, 0, -1), -.5, r)) {
+    return color(1,0,0);
+  }
   // linear interpolation
   vec3 unitDirection = unit_vector(r.direction());
   double a = 0.5 * (unitDirection.getY() + 1.);
